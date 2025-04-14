@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom right, #d7ccc8, #a1887f);
+      color: #3e2723;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #f5e1c8;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(62, 39, 35, 0.3);
+      border: 2px solid #a1887f;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes floatText {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+
+    .profile-img {
+      width: 250px;
+      border-radius: 15px;
+      border: 5px solid #fff8e1;
+      animation: fadeSlideIn 1s ease-out forwards, float 3s ease-in-out infinite;
+      opacity: 0;
+      box-shadow: 0 4px 10px rgba(62, 39, 35, 0.3);
+    }
+
+    h1, h2 {
+      font-family: 'Comic Sans MS', cursive;
+      color: #4e342e;
+      margin: 10px 0;
+      animation: fadeSlideIn 1s ease-out forwards, floatText 4s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    .section {
+      text-align: left;
+      margin-top: 30px;
+    }
+
+    .section h3 {
+      color: #6d4c41;
+      cursor: pointer;
+      background-color: #efebe9;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0 2px 5px rgba(62, 39, 35, 0.1);
+    }
+
+    .section h3:hover {
+      background-color: #d7ccc8;
+      transform: translateY(-2px);
+    }
+
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+      opacity: 0;
+      transform: translateY(-10px);
+      padding-left: 10px;
+    }
+
+    .content.show {
+      max-height: 500px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .personal-info p,
+    .content p {
+      font-weight: bold;
+      color: #4e342e;
+      line-height: 1.6;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background-color: #a1887f;
+      margin: 30px 0;
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hello, I'm</h1>
+    <h2>Fernandez, Christian Ivan</h2>
+    <img class="profile-img" src="ivan.jpg" alt="nasa pc">
+
+    <hr>
+
+    <div class="section">
+      <h3 id="toggleAbout">ABOUT ME</h3>
+      <div class="content" id="aboutContent">
+        <p>I am a second-year college student taking BS in Information Technology. I enjoy playing different types of games, especially those with strategy and adventure. Aside from gaming, I am also interested in technology and networking concepts. I use what I learn in IT to better understand game mechanics and systems.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 id="toggleInfo">PERSONAL INFORMATION</h3>
+      <div class="content" id="infoContent">
+        <p>NAME: Fernandez, Christian Ivan</p>
+        <p>AGE: 20 Years Old</p>
+        <p>Birthdate: March 21, 2005</p>
+        <p>Address: Brgy. Sta Cruz San Pablo City Laguna</p>
+        <p>Contact Number: 09627462848</p>
+        <p>Email: fernandez.christianivan21@gmail.com</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const toggleAbout = document.getElementById('toggleAbout');
+    const aboutContent = document.getElementById('aboutContent');
+    const toggleInfo = document.getElementById('toggleInfo');
+    const infoContent = document.getElementById('infoContent');
+
+    toggleAbout.addEventListener('click', () => {
+      aboutContent.classList.toggle('show');
+      infoContent.classList.remove('show');
+    });
+
+    toggleInfo.addEventListener('click', () => {
+      infoContent.classList.toggle('show');
+      aboutContent.classList.remove('show');
+    });
+  </script>
+</body>
+</html>
