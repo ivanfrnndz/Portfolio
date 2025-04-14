@@ -113,6 +113,42 @@
       margin: 30px 0;
       width: 80%;
     }
+
+    .skill-bar {
+      background-color: #d7ccc8;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .skill-level {
+      height: 20px;
+      line-height: 20px;
+      color: white;
+      font-weight: bold;
+      padding-left: 10px;
+      animation: grow 2s ease-out forwards;
+    }
+
+    @keyframes grow {
+      from { width: 0; }
+      to { width: var(--level); }
+    }
+
+    .html { background-color: #ff7043; --level: 75%; }
+    .css { background-color: #42a5f5; --level: 50%; }
+    .js { background-color: #fbc02d; color: #3e2723; --level: 50%; }
+
+    .contact-info {
+      margin-top: 15px;
+      text-align: left;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+      font-weight: bold;
+    }
+
   </style>
 </head>
 <body>
@@ -141,6 +177,31 @@
         <p>Email: fernandez.christianivan21@gmail.com</p>
       </div>
     </div>
+
+    <div class="section">
+      <h3 id="toggleSkills">MY SKILLS</h3>
+      <div class="content" id="skillsContent">
+        <p>HTML</p>
+        <div class="skill-bar"><div class="skill-level html">75%</div></div>
+
+        <p>CSS</p>
+        <div class="skill-bar"><div class="skill-level css">50%</div></div>
+
+        <p>JavaScript</p>
+        <div class="skill-bar"><div class="skill-level js">50%</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 id="toggleContact">CONTACT ME</h3>
+      <div class="content" id="contactContent">
+        <div class="contact-info">
+          <p>Phone: 09627462848</p>
+          <p>Email: fernandez.christianivan21@gmail.com</p>
+          <p>Address: Brgy. Sta Cruz San Pablo City Laguna</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -148,15 +209,37 @@
     const aboutContent = document.getElementById('aboutContent');
     const toggleInfo = document.getElementById('toggleInfo');
     const infoContent = document.getElementById('infoContent');
+    const toggleSkills = document.getElementById('toggleSkills');
+    const skillsContent = document.getElementById('skillsContent');
+    const toggleContact = document.getElementById('toggleContact');
+    const contactContent = document.getElementById('contactContent');
 
     toggleAbout.addEventListener('click', () => {
       aboutContent.classList.toggle('show');
       infoContent.classList.remove('show');
+      skillsContent.classList.remove('show');
+      contactContent.classList.remove('show');
     });
 
     toggleInfo.addEventListener('click', () => {
       infoContent.classList.toggle('show');
       aboutContent.classList.remove('show');
+      skillsContent.classList.remove('show');
+      contactContent.classList.remove('show');
+    });
+
+    toggleSkills.addEventListener('click', () => {
+      skillsContent.classList.toggle('show');
+      aboutContent.classList.remove('show');
+      infoContent.classList.remove('show');
+      contactContent.classList.remove('show');
+    });
+
+    toggleContact.addEventListener('click', () => {
+      contactContent.classList.toggle('show');
+      aboutContent.classList.remove('show');
+      infoContent.classList.remove('show');
+      skillsContent.classList.remove('show');
     });
   </script>
 </body>
